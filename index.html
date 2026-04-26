@@ -3,105 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Chic Lash Boutique - Consent Form</title>
+    <title>Chic Lash Boutique - Facial Consent Form</title>
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
     <style>
         body { font-family: 'Helvetica', Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 10px; display: flex; justify-content: center; }
-        .paper { background: white; width: 100%; max-width: 800px; padding: 30px; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; }
-        
+        .paper { background: white; width: 100%; max-width: 850px; padding: 30px; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; }
         .logo-container { text-align: center; margin-bottom: 20px; }
-        .logo-img { max-width: 220px; height: auto; } 
-        .title { text-align: center; font-size: 18px; font-weight: bold; text-decoration: underline; margin-bottom: 30px; }
+        .logo-img { max-width: 200px; height: auto; }
+        .title { text-align: center; font-size: 20px; font-weight: bold; text-decoration: underline; margin-bottom: 30px; }
         
-        .row { margin-bottom: 15px; display: flex; align-items: flex-end; flex-wrap: wrap; }
-        .label { font-size: 14px; font-weight: bold; margin-right: 8px; white-space: nowrap; }
-        input[type="text"], input[type="email"] { border: none; border-bottom: 1px solid black; flex: 1; min-width: 150px; font-size: 16px; outline: none; padding: 2px; background: transparent; }
+        .section-title { background: #f9f9f9; padding: 8px; font-weight: bold; margin: 20px 0 15px 0; border-left: 4px solid #000; }
+        .row { margin-bottom: 12px; display: flex; align-items: flex-end; flex-wrap: wrap; }
+        .label { font-size: 14px; font-weight: bold; margin-right: 8px; }
+        input[type="text"] { border: none; border-bottom: 1px solid #000; flex: 1; min-width: 150px; font-size: 16px; outline: none; padding: 2px; }
         
-        .q-row { margin-top: 18px; font-size: 14px; line-height: 1.5; }
+        .q-row { margin-top: 15px; font-size: 14px; line-height: 1.5; }
         label { margin-right: 12px; cursor: pointer; display: inline-flex; align-items: center; }
-        input[type="radio"], input[type="checkbox"] { margin-right: 5px; width: 18px; height: 18px; }
-        
-        .notice-box { font-size: 13px; line-height: 1.6; margin: 30px 0; padding: 20px; background: #f9f9f9; border-radius: 5px; color: #333; border: 1px solid #eee; }
+        input[type="radio"], input[type="checkbox"] { margin-right: 5px; width: 17px; height: 17px; }
 
-        /* 签名区域修复 */
-        .signature-section { margin-top: 30px; border-top: 2px solid #333; padding-top: 20px; }
-        .signature-wrapper { border: 2px dashed #ccc; background: #fff; position: relative; width: 100%; max-width: 500px; height: 200px; margin-top: 10px; touch-action: none; }
-        canvas { width: 100%; height: 100%; touch-action: none; display: block; }
-        .clear-btn { position: absolute; top: 10px; right: 10px; padding: 6px 12px; background: #eee; border: 1px solid #ccc; border-radius: 4px; font-size: 12px; cursor: pointer; z-index: 100; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+        th, td { border: 1px solid #eee; padding: 10px; text-align: left; }
+        th { background: #f4f4f4; }
+        .price { font-weight: bold; }
 
-        .btn-save { position: fixed; bottom: 25px; right: 25px; padding: 16px 30px; background: #000; color: #fff; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; }
+        .signature-wrapper { border: 2px dashed #ccc; background: #fff; position: relative; width: 100%; max-width: 500px; height: 180px; margin-top: 10px; touch-action: none; }
+        canvas { width: 100%; height: 100%; touch-action: none; }
+        .clear-btn { position: absolute; top: 10px; right: 10px; padding: 5px 12px; background: #eee; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; z-index: 10; }
+        .btn-save { position: fixed; bottom: 20px; right: 20px; padding: 15px 30px; background: #000; color: #fff; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 
-        @media print {
-            .btn-save, .clear-btn { display: none !important; }
-            body { background: white; padding: 0; }
-            .paper { box-shadow: none; width: 100%; padding: 0; }
-            .signature-wrapper { border: none; border-bottom: 1px solid black; }
-        }
+        @media print { .btn-save, .clear-btn { display: none !important; } .paper { box-shadow: none; padding: 0; } }
     </style>
 </head>
 <body>
 
 <div class="paper">
-    <div class="logo-container">
-        <img src="logo.png" alt="Logo" class="logo-img">
-    </div>
+    <div class="logo-container"><img src="logo.png" alt="Logo" class="logo-img"></div>
+    <div class="title">SKIN CARE REPORT & CONSENT FORM</div>
 
-    <div class="title">HEAD SPA AGREEMENT AND CONSENT FORM</div>
+    <div class="row"><div class="label">NAME:</div><input type="text"></div>
+    <div class="row"><div class="label">PHONE:</div><input type="text"></div>
+    <div class="row"><div class="label">DATE:</div><input type="text"></div>
 
-    <div class="row"><div class="label">FIRST NAME:</div><input type="text"></div>
-    <div class="row"><div class="label">LAST NAME:</div><input type="text"></div>
-    <div class="row"><div class="label">PHONE NUMBER:</div><input type="text"></div>
-    <div class="row"><div class="label">E-MAIL:</div><input type="email"></div>
-    <div class="row"><div class="label">DATE OF BIRTH (MM/DD):</div><input type="text"></div>
+    <div class="section-title">SKIN ANALYSIS (DAILY CARE)</div>
+    <div class="q-row">1. Do you wear makeup? <label><input type="radio" name="mk"> Yes</label> <label><input type="radio" name="mk"> No</label></div>
+    <div class="row" style="margin-left: 20px;"><div class="label">Removal:</div><label><input type="checkbox"> Oil</label> <label><input type="checkbox"> Wipes</label> <label><input type="checkbox"> Soap</label> <input type="text" placeholder="Other"></div>
     
-    <div class="q-row">
-        <b>How did you hear about us?</b><br>
-        <label><input type="checkbox"> Google</label>
-        <label><input type="checkbox"> Yelp</label>
-        <label><input type="checkbox"> Friend</label>
-        <label><input type="checkbox"> Pass By</label>
-    </div>
-
-    <div class="q-row">1. Have you received scalp massage before? <label><input type="radio" name="q1"> Yes</label> <label><input type="radio" name="q1"> No</label></div>
-    <div class="q-row">2. Are you on any medication? <label><input type="radio" name="q2"> Yes</label> <label><input type="radio" name="q2"> No</label></div>
-    <div class="row" style="margin-left: 20px;"><div class="label">If yes, which ones:</div><input type="text"></div>
+    <div class="q-row">2. Face wash type: <label><input type="checkbox"> Foam</label> <label><input type="checkbox"> Soap</label> <input type="text" placeholder="Other"></div>
+    <div class="q-row">3. Water temperature: <label><input type="radio" name="tw"> Cold</label> <label><input type="radio" name="tw"> Warm</label></div>
     
-    <div class="q-row">3. Do you have any allergies? <label><input type="radio" name="q3"> Yes</label> <label><input type="radio" name="q3"> No</label></div>
-    <div class="row" style="margin-left: 20px;"><div class="label">If yes, which ones:</div><input type="text"></div>
-    
-    <div class="q-row">4. Are you pregnant? <label><input type="radio" name="q4"> Yes</label> <label><input type="radio" name="q4"> No</label></div>
-    
-    <div class="q-row">
-        5. Water temperature preference:
-        <label><input type="radio" name="temp"> Cool</label> <label><input type="radio" name="temp"> Normal</label> <label><input type="radio" name="temp"> Warm</label> <label><input type="radio" name="temp"> Extra Warm</label>
-    </div>
-    <div class="q-row">
-        6. Head Massage Pressure:
-        <label><input type="radio" name="hp"> Soft</label> <label><input type="radio" name="hp"> Medium</label> <label><input type="radio" name="hp"> Hard</label>
-    </div>
-    <div class="q-row">
-        7. Neck & Shoulder Massage Pressure:
-        <label><input type="radio" name="np"> Soft</label> <label><input type="radio" name="np"> Medium</label> <label><input type="radio" name="np"> Hard</label>
-    </div>
-    <div class="q-row">
-        8. Please indicate if you have any of the following:
-        <label><input type="checkbox"> Skin Conditions</label> <label><input type="checkbox"> Dandruff</label> <label><input type="checkbox"> Eczema</label> <label><input type="checkbox"> Psoriasis</label>
-    </div>
-    <div class="q-row">9. Head, neck or shoulder surgery (if any):</div>
-    <div class="row"><input type="text"></div>
+    <div class="q-row">4. Do you use exfoliators / Enzymatic products? <label><input type="radio" name="ex"> Yes</label> <label><input type="radio" name="ex"> No</label></div>
+    <div class="q-row">5. Do you use Vitamin C or Brightening/Whitening products? <label><input type="radio" name="vc"> Yes</label> <label><input type="radio" name="vc"> No</label></div>
+    <div class="row" style="margin-left: 20px;"><div class="label">Usage Frequency:</div><label><input type="radio" name="fq"> Daily</label> <label><input type="radio" name="fq"> Weekly</label> <label><input type="radio" name="fq"> Sometimes</label></div>
 
-    <div class="notice-box">
-        I understand that scalp massage therapy is for the purpose of stress reduction, relief from muscular tension or spasm, or for increasing circulation. I understand that the therapist does not diagnose illness, disease or any other physical or mental disorder. The therapist does not prescribe medical treatment nor perform spinal manipulations. I will inform the therapist of my current condition at the time of each visit.
-    </div>
-
-    <div class="signature-section">
-        <div class="label">Customer Signature:</div>
-        <div class="signature-wrapper">
-            <button class="clear-btn" type="button" id="clearBtn">Clear</button>
-            <canvas id="signature-pad"></canvas>
+    <div class="section-title">MEDICAL & SPECIAL REQUIREMENTS</div>
+    <div class="q-row">6. Please check if apply: 
+        <br><label><input type="checkbox"> Currently Pregnant</label> 
+        <br><label><input type="checkbox"> Metal implants in body</label> 
+        <br><label><input type="checkbox"> <b>Claustrophobia</b> (Check requirements below if yes):</label>
+        <div style="margin-left: 25px; margin-top: 5px;">
+            <label><input type="checkbox"> A: Do not cover my eyes and lips</label><br>
+            <label><input type="checkbox"> B: Masks OK, but let me know before applying</label><br>
+            <label><input type="checkbox"> C: I need to keep the lights on</label>
         </div>
-        <div class="row" style="margin-top:20px;"><div class="label">Date:</div><input type="text" placeholder="YYYY-MM-DD"></div>
     </div>
+    <div class="q-row">7. Allergies (Aspirin, Iodine, Nuts): <input type="text"></div>
+    <div class="q-row">8. Shoulder/Neck Massage intensity (1-10): <input type="text" style="width: 60px;"></div>
+
+    <div class="section-title">FACIAL SERVICES SELECTION</div>
+    <table>
+        <tr><th>Service</th><th>Time</th><th>Price</th><th>Select</th></tr>
+        <tr><td>Signature (Gypsum Mask)</td><td>1h30m</td><td class="price">$295</td><td><input type="checkbox"></td></tr>
+        <tr><td>Pola Anti-Aging (Gypsum Mask)</td><td>1h15m</td><td class="price">$325</td><td><input type="checkbox"></td></tr>
+        <tr><td>Acne Facial (Antibacterial Mask)</td><td>1h30m</td><td class="price">$285</td><td><input type="checkbox"></td></tr>
+        <tr><td>Hydro Facial (Hydro Mask)</td><td>1hr</td><td class="price">$225</td><td><input type="checkbox"></td></tr>
+        <tr><td>Hydro Lux (Hydro Mask)</td><td>1h20m</td><td class="price">$265</td><td><input type="checkbox"></td></tr>
+        <tr><td>Prenatal Care (Hydro Mask)</td><td>1h15m</td><td class="price">$225</td><td><input type="checkbox"></td></tr>
+        <tr><td>Teen Care / Hydro Mask</td><td>1hr</td><td class="price">$150</td><td><input type="checkbox"></td></tr>
+        <tr><td>Gentle Men (Hydro Mask)</td><td>1hr</td><td class="price">$175</td><td><input type="checkbox"></td></tr>
+    </table>
+
+    <div class="section-title">ADD-ONS & WAXING</div>
+    <div class="q-row">
+        <b>Add-ons:</b> 
+        <label><input type="checkbox"> Ultrasonic Cleaning ($25)</label>
+        <label><input type="checkbox"> Eye Treatment (Reg $10 / Pola $35)</label>
+    </div>
+    <div class="q-row">
+        <b>Waxing:</b> 
+        <label><input type="checkbox"> Brow ($25)</label>
+        <label><input type="checkbox"> Full Face ($55)</label>
+        <label><input type="checkbox"> Lip/Chin ($15)</label>
+    </div>
+
+    <div class="section-title">CONSENT & SIGNATURE</div>
+    <p style="font-size: 11px; color: #666;">I understand treatments are for cosmetic purposes. I have provided accurate health info. I've been informed that using brightening/Vitamin C products may cause slight discomfort during extractions.</p>
+    
+    <div class="signature-wrapper">
+        <button class="clear-btn" type="button" id="clearBtn">Clear</button>
+        <canvas id="signature-pad"></canvas>
+    </div>
+    <div class="row" style="margin-top:20px;"><div class="label">Client Signature Date:</div><input type="text"></div>
 </div>
 
 <button class="btn-save" onclick="window.print()">SAVE AS PDF</button>
@@ -119,21 +120,13 @@
         if (signaturePad) signaturePad.clear();
     }
 
-    // 初始化逻辑
     window.onload = function() {
-        signaturePad = new SignaturePad(canvas, {
-            backgroundColor: 'rgba(255, 255, 255, 0)',
-            penColor: 'rgb(0, 0, 0)'
-        });
+        signaturePad = new SignaturePad(canvas, { backgroundColor: 'rgba(255, 255, 255, 0)', penColor: 'rgb(0, 0, 0)' });
         resizeCanvas();
     };
 
     window.addEventListener("resize", resizeCanvas);
-
-    clearButton.addEventListener('click', function(event) {
-        event.preventDefault();
-        signaturePad.clear();
-    });
+    clearButton.addEventListener('click', () => signaturePad.clear());
 </script>
 
 </body>
