@@ -14,8 +14,8 @@
         
         .section-title { background: #f9f9f9; padding: 8px; font-weight: bold; margin: 20px 0 15px 0; border-left: 4px solid #000; }
         .row { margin-bottom: 12px; display: flex; align-items: flex-end; flex-wrap: wrap; }
-        .label { font-size: 14px; font-weight: bold; margin-right: 8px; }
-        input[type="text"] { border: none; border-bottom: 1px solid #000; flex: 1; min-width: 150px; font-size: 16px; outline: none; padding: 2px; }
+        .label { font-size: 14px; font-weight: bold; margin-right: 8px; white-space: nowrap; }
+        input[type="text"], input[type="email"] { border: none; border-bottom: 1px solid #000; flex: 1; min-width: 150px; font-size: 16px; outline: none; padding: 2px; background: transparent; }
         
         .q-row { margin-top: 15px; font-size: 14px; line-height: 1.5; }
         label { margin-right: 12px; cursor: pointer; display: inline-flex; align-items: center; }
@@ -29,7 +29,7 @@
         .signature-wrapper { border: 2px dashed #ccc; background: #fff; position: relative; width: 100%; max-width: 500px; height: 180px; margin-top: 10px; touch-action: none; }
         canvas { width: 100%; height: 100%; touch-action: none; }
         .clear-btn { position: absolute; top: 10px; right: 10px; padding: 5px 12px; background: #eee; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; z-index: 10; }
-        .btn-save { position: fixed; bottom: 20px; right: 20px; padding: 15px 30px; background: #000; color: #fff; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .btn-save { position: fixed; bottom: 20px; right: 20px; padding: 15px 30px; background: #000; color: #fff; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; }
 
         @media print { .btn-save, .clear-btn { display: none !important; } .paper { box-shadow: none; padding: 0; } }
     </style>
@@ -40,9 +40,19 @@
     <div class="logo-container"><img src="logo.png" alt="Logo" class="logo-img"></div>
     <div class="title">SKIN CARE REPORT & CONSENT FORM</div>
 
-    <div class="row"><div class="label">NAME:</div><input type="text"></div>
-    <div class="row"><div class="label">PHONE:</div><input type="text"></div>
-    <div class="row"><div class="label">DATE:</div><input type="text"></div>
+    <div class="row"><div class="label">FIRST NAME:</div><input type="text"></div>
+    <div class="row"><div class="label">LAST NAME:</div><input type="text"></div>
+    <div class="row"><div class="label">PHONE NUMBER:</div><input type="text"></div>
+    <div class="row"><div class="label">E-MAIL:</div><input type="email"></div>
+    <div class="row"><div class="label">DATE OF BIRTH (MM/DD):</div><input type="text"></div>
+    
+    <div class="q-row">
+        <b>How did you hear about us?</b><br>
+        <label><input type="checkbox"> Google</label>
+        <label><input type="checkbox"> Yelp</label>
+        <label><input type="checkbox"> Friend</label>
+        <label><input type="checkbox"> Pass By</label>
+    </div>
 
     <div class="section-title">SKIN ANALYSIS (DAILY CARE)</div>
     <div class="q-row">1. Do you wear makeup? <label><input type="radio" name="mk"> Yes</label> <label><input type="radio" name="mk"> No</label></div>
@@ -52,17 +62,17 @@
     <div class="q-row">3. Water temperature: <label><input type="radio" name="tw"> Cold</label> <label><input type="radio" name="tw"> Warm</label></div>
     
     <div class="q-row">4. Do you use exfoliators / Enzymatic products? <label><input type="radio" name="ex"> Yes</label> <label><input type="radio" name="ex"> No</label></div>
-    <div class="q-row">5. Do you use Vitamin C or Brightening/Whitening products? <label><input type="radio" name="vc"> Yes</label> <label><input type="radio" name="vc"> No</label></div>
+    <div class="q-row">5. Vitamin C or Brightening/Whitening products? <label><input type="radio" name="vc"> Yes</label> <label><input type="radio" name="vc"> No</label></div>
     <div class="row" style="margin-left: 20px;"><div class="label">Usage Frequency:</div><label><input type="radio" name="fq"> Daily</label> <label><input type="radio" name="fq"> Weekly</label> <label><input type="radio" name="fq"> Sometimes</label></div>
 
     <div class="section-title">MEDICAL & SPECIAL REQUIREMENTS</div>
     <div class="q-row">6. Please check if apply: 
         <br><label><input type="checkbox"> Currently Pregnant</label> 
         <br><label><input type="checkbox"> Metal implants in body</label> 
-        <br><label><input type="checkbox"> <b>Claustrophobia</b> (Check requirements below if yes):</label>
+        <br><label><input type="checkbox"> Claustrophobia (Check below if yes):</label>
         <div style="margin-left: 25px; margin-top: 5px;">
-            <label><input type="checkbox"> A: Do not cover my eyes and lips</label><br>
-            <label><input type="checkbox"> B: Masks OK, but let me know before applying</label><br>
+            <label><input type="checkbox"> A: Do not cover my eyes and lip</label><br>
+            <label><input type="checkbox"> B: Masks OK, let me know before applying</label><br>
             <label><input type="checkbox"> C: I need to keep the lights on</label>
         </div>
     </div>
@@ -90,7 +100,7 @@
     </div>
     <div class="q-row">
         <b>Waxing:</b> 
-        <label><input type="checkbox"> Brow ($25)</label>
+        <label><input type="checkbox"> Brow ($30)</label>
         <label><input type="checkbox"> Full Face ($55)</label>
         <label><input type="checkbox"> Lip/Chin ($15)</label>
     </div>
@@ -102,7 +112,7 @@
         <button class="clear-btn" type="button" id="clearBtn">Clear</button>
         <canvas id="signature-pad"></canvas>
     </div>
-    <div class="row" style="margin-top:20px;"><div class="label">Client Signature Date:</div><input type="text"></div>
+    <div class="row" style="margin-top:20px;"><div class="label">Date:</div><input type="text"></div>
 </div>
 
 <button class="btn-save" onclick="window.print()">SAVE AS PDF</button>
